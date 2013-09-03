@@ -1,0 +1,271 @@
+%!TEX root = ../Thesis.tex
+\documentclass[10pt,twoside,b5paper,showtrims]{memoir}
+\RequireXeTeX
+
+% Stock and paper layout
+\showtrimsoff
+\pagebv
+\setlrmarginsandblock{26mm}{20mm}{*}
+\setulmarginsandblock{35mm}{30mm}{*}
+\setheadfoot{8mm}{10mm}
+\setlength{\headsep}{7mm}
+\setlength{\marginparwidth}{18mm}
+\setlength{\marginparsep}{2mm}
+
+% For printing B5 on A4 with trimmarks uncomment the following
+%\showtrimson
+%\stockaiv
+%\setlength{\trimtop}{\stockheight}
+%\addtolength{\trimtop}{-\paperheight}
+%\setlength{\trimtop}{0.5\trimtop}
+%\setlength{\trimedge}{\stockwidth}
+%\addtolength{\trimedge}{-\paperwidth}
+%\setlength{\trimedge}{0.5\trimedge}
+%\trimLmarks
+
+\checkandfixthelayout                 % Check if errors!
+\sideparmargin{outer}                 % Put sidemargins in outer position (why the fuck is this option not default by the class?)
+
+% Language
+\usepackage[danish,english]{babel}    % Allows langauge switching
+\selectlanguage{english}
+
+% Large environments
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}                     % Drawing tool
+\usepackage{pgfplots}                 % Plot tools
+\usepackage{listings}                 % Source code printer for LaTeX
+\usetikzlibrary{
+    arrows,
+    matrix,
+    positioning,
+    shapes,
+    snakes,
+    topaths,
+}
+\pgfplotsset{compat=1.7}
+
+% Symbols
+\usepackage{amsmath,amssymb,latexsym} % AMS and other symbols
+
+% Links
+\usepackage[hyphens]{url}             % Allow hyphens in URL's
+\usepackage[unicode,psdextra]{hyperref}                 % References package
+
+% Graphics and colors
+\usepackage{graphicx}                 % Including graphics and using colours
+\usepackage{xcolor}                   % Defined more color names
+\usepackage{eso-pic}                  % Watermark and other bag
+\usepackage{setup/dtucolors}
+
+% Fonts (http://www.macfreek.nl/memory/Fonts_in_LaTeX)
+% Install fonts from /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
+\usepackage{fontspec}
+\usepackage[math-style=TeX]{unicode-math}
+
+% Serif font
+\setmainfont[Ligatures=TeX]{CMU Serif}% Computer Modern Unicode font
+\setmonofont{CMU Typewriter Text}     % Computer Modern Unicode font
+
+% Math font
+\setmathfont{Latin Modern Math}
+
+% Sans-serif font
+%\setsansfont[Ligatures=TeX]{CMU Sans Serif}    % Computer Modern Unicode font
+%\setsansfont[Ligatures=TeX]{TeX Gyre Adventor} % Sans serif font based on ITC Avant Garde Gothic
+%\setsansfont[Ligatures=TeX]{NeoSans}           % NeoSans – DTU font
+\setsansfont[Ligatures=TeX]{Neo Sans Intel}    % Neo Sans Intel – Like DTU font but more symbols
+
+% Floating objets, captions and references
+\usepackage[noabbrev,nameinlink,capitalise]{cleveref} % Clever references. Options: "fig. !1!" --> "!Figure 1!"
+\usepackage[format=hang,labelfont=bf,textfont=normalsize]{caption} % Nice captions
+\usepackage{subfig}                   % Subfigures
+\letcountercounter{figure}{table}     % Consecutive table and figure numbering
+
+% Table of contents (TOC)
+\setcounter{tocdepth}{1}              % Depth of table of content
+\setcounter{secnumdepth}{2}           % Depth of section numbering
+\usepackage{shorttoc}                 % Short table of contents
+% Put short contents as pdf bookmark only
+\makeatletter
+\let\oldshorttableofcontents\shorttableofcontents
+\newcommand{\newshorttableofcontents}[2]{
+    \phantomsection\pdfbookmark[0]{#1}{#1}
+    \oldshorttableofcontents{#1}{#2}
+}
+\let\shorttableofcontents\newshorttableofcontents
+\makeatother
+
+% Todos
+\usepackage{totcount}                 % For total counting of counters
+\usepackage{todonotes}                % Todonotes package for nice todos (disable by option [disable])
+\newtotcounter{todocounter}           % Creates counter in todo
+\let\oldtodo\todo
+\newcommand*{\newtodo}[2][]{\stepcounter{todocounter}\oldtodo[#1]{\#\thetodocounter~#2}}
+\let\todo\newtodo
+\let\oldmissingfigure\missingfigure
+\newcommand*{\newmissingfigure}[2][]{\stepcounter{todocounter}\oldmissingfigure[#1]{\#\thetodocounter~#2}}
+\let\missingfigure\newmissingfigure
+\makeatletter
+\let\oldlistoftodos\listoftodos
+\newcommand{\newlistoftodos}{%
+    \markboth{\@todonotes@todolistname}{\@todonotes@todolistname}
+    \@ifstar{\oldlistoftodos}{\phantomsection\todototoc\oldlistoftodos}}
+\let\listoftodos\newlistoftodos
+\newcommand*{\totaltodos}{%
+\if@todonotes@disabled
+\else
+There are \total{todocounter} todos left.
+\fi
+}
+\newcommand*{\mylistoftodos}{% Only show list if there are todos
+\if@todonotes@disabled
+\else
+    \ifnum\totvalue{todocounter}>0
+        \listoftodos
+    \else
+    \fi
+\fi
+}
+\makeatother
+
+% Prefrontmatter
+\newcommand{\prefrontmatter}{\pagenumbering{alph}}
+
+% Chapterstyle
+\makeatletter
+\makechapterstyle{mychapterstyle}{
+    \chapterstyle{default}
+    \def\format{\normalfont\sffamily}
+    
+    \setlength\beforechapskip{0mm}
+    
+    \renewcommand*{\chapnamefont}{\format\LARGE}
+    \renewcommand*{\chapnumfont}{\format\fontsize{40}{40}\selectfont}
+    \renewcommand*{\chaptitlefont}{\format\fontsize{32}{32}\selectfont}
+
+    \renewcommand*{\printchaptername}{\chapnamefont\MakeUppercase{\@chapapp}}
+    \patchcommand{\printchaptername}{\begingroup\color{dtugray}}{\endgroup}
+    \renewcommand*{\chapternamenum}{\space\space}
+    \patchcommand{\printchapternum}{\begingroup\color{dtured}}{\endgroup}
+    \renewcommand*{\printchapternonum}{%
+        \vphantom{\printchaptername\chapternamenum\chapnumfont 1}
+        \afterchapternum
+    }
+
+    \setlength\midchapskip{1ex}
+
+    \renewcommand*{\printchaptertitle}[1]{\raggedleft \chaptitlefont ##1}
+    \renewcommand*{\afterchaptertitle}{\vskip0.5\onelineskip \hrule \vskip1.3\onelineskip}
+    
+}
+\makeatother
+\chapterstyle{mychapterstyle}
+
+% Header and footer
+\def\hffont{\sffamily\small}
+\makepagestyle{myruled}
+\makeheadrule{myruled}{\textwidth}{\normalrulethickness}
+\makeevenhead{myruled}{\hffont\thepage}{}{\hffont\leftmark}
+\makeoddhead{myruled}{\hffont\rightmark}{}{\hffont\thepage}
+\makeevenfoot{myruled}{}{}{}
+\makeoddfoot{myruled}{}{}{}
+\makepsmarks{myruled}{
+    \nouppercaseheads
+    \createmark{chapter}{both}{nonumber}{}{}
+    \createmark{section}{right}{shownumber}{}{\space}
+    \createplainmark{toc}{both}{\contentsname}
+    \createplainmark{lof}{both}{\listfigurename}
+    \createplainmark{lot}{both}{\listtablename}
+    \createplainmark{bib}{both}{\bibname}
+    \createplainmark{index}{both}{\indexname}
+    \createplainmark{glossary}{both}{\glossaryname}
+}
+\pagestyle{myruled}
+\copypagestyle{cleared}{myruled}      % When \cleardoublepage, use myruled instead of empty
+\makeevenfoot{plain}{}{}{}            % No page number on plain even pages (chapter begin)
+\makeoddfoot{plain}{}{}{}             % No page number on plain odd pages (chapter begin)
+
+% Hypersetup
+\hypersetup{
+    %pdfauthor={},
+    %pdftitle={},
+    %pdfsubject={},
+    bookmarksnumbered=true,
+    bookmarksopen,
+    breaklinks,
+    linktoc=all,
+    plainpages=false,
+    unicode=true,
+    colorlinks,
+    citecolor=dtured,                 % color of links to bibliography
+    filecolor=dtured,                 % color of file links
+    linkcolor=dtured,                 % color of internal links (change box color with linkbordercolor)
+    urlcolor=s13,                     % color of external links
+    %hidelinks,                       % Printed version without colored links?
+}
+% Hack to make right pdfbookmark link. The normal behavior links just below the chapter title. This hack put the link just above the chapter like any other normal use of \chapter.
+% Another solution can be found in http://tex.stackexchange.com/questions/59359/certain-hyperlinks-memoirhyperref-placed-too-low
+\makeatletter
+\renewcommand{\@memb@bchap}{%
+  \ifnobibintoc\else
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\bibname}%
+  \fi
+  \chapter*{\bibname}%
+  \bibmark
+  \prebibhook
+}
+\let\oldtableofcontents\tableofcontents
+\newcommand{\newtableofcontents}{
+    \@ifstar{\oldtableofcontents*}{
+        \phantomsection\addcontentsline{toc}{chapter}{\contentsname}\oldtableofcontents*}}
+\let\tableofcontents\newtableofcontents
+\makeatother
+
+% Listings
+\lstset{
+    basicstyle=\footnotesize\ttfamily,% the size of the fonts that are used for the code
+    breakatwhitespace=false,          % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                  % sets automatic line breaking
+    captionpos=b,                     % sets the caption-position to bottom
+    commentstyle=\color{s14a},        % comment style
+    deletekeywords={},                % if you want to delete keywords from the given language
+    escapeinside={\%*}{*)},           % if you want to add LaTeX within your code
+    frame=single,                     % adds a frame around the code
+    keywordstyle=\bfseries\ttfamily\color{s09}, % keyword style
+    language=Python,                  % the language of the code
+    morekeywords={*,...},             % if you want to add more keywords to the set
+    numbers=left,                     % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=5pt,                    % how far the line-numbers are from the code
+    numberstyle=\sffamily\tiny\color{dtugray}, % the style that is used for the line-numbers
+    rulecolor=\color{dtugray},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+    showspaces=false,                 % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,           % underline spaces within strings only
+    showtabs=false,                   % show tabs within strings adding particular underscores
+    stepnumber=1,                     % the step between two line-numbers. If it's 1, each line will be numbered
+    stringstyle=\color{s07},          % string literal style
+    tabsize=2,                        % sets default tabsize to 2 spaces
+    title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% Confidential
+\newcommand{\confidentialbox}[1]{
+    \put(0,0){\parbox[b][\paperheight]{\paperwidth}{
+        \begin{vplace}
+            \centering
+            \scalebox{1.3}{
+                \begin{tikzpicture}
+                    \node[very thick,draw=red!#1,color=red!#1,
+                          rounded corners=2pt,inner sep=8pt,rotate=-20]
+                          {\sffamily \HUGE \MakeUppercase{Confidential}};
+                \end{tikzpicture}
+            }
+        \end{vplace}
+    }}
+}
+\newcommand{\confidential}{%
+    \AddToShipoutPictureBG{\confidentialbox{10}}   % 10% classified box in background on each page
+    \AddToShipoutPictureFG*{\confidentialbox{100}} % 100% classified box in foreground on first page
+}

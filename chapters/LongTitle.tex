@@ -1,0 +1,159 @@
+%!TEX root = ../Thesis.tex
+\chapter{Long chapter title with $\pi$, $π$ or π}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \textsf{What about some inline sans serif text?}. $x = 4, y= 7$ which means that $\sqrt{4} = 2$.
+
+Sans serif testing:
+\begin{itemize}
+    \item \textsf{$\pi$}
+    \item \textsf{$π$}
+    \item \textsf{π}
+    \item \textsf{\emph{italic}}
+    \item \textsf{\textbf{\emph{bold italic}}}
+    \item \textsf{\textbf{bold}}
+    \item \textsf{\texttt{teletype}}
+\end{itemize}
+
+\begin{figure}
+    \centering
+        \begin{tikzpicture}[
+            implies/.style={double,double distance=1.5pt,},
+            dot/.style={shape=circle,fill=black,minimum size=3pt,
+                        inner sep=0pt,outer sep=3pt},
+            actor/.style={rectangle,draw,minimum width=1.5cm,minimum height=0.5cm},
+            end/.style={rectangle,draw,minimum width=1cm,minimum height=0.2cm,fill=black},
+        ]
+        \matrix[matrix of nodes] {
+            {Initiator}              &[3.5cm] {Responder}     &[3.5cm] {Server} \\
+            |[actor] (A0)| {A}       & |[actor] (B0)| {B}     & |[actor] (S0)| {S}\\[1cm]
+            |[dot]   (A1)| {}        & |[dot]   (B1)| {}      & |[]      (S1)| {} \\[1cm]
+            |[]      (A2)| {}        & |[dot]   (B2)| {}      & |[dot]   (S2)| {} \\[2cm]
+            |[dot]   (A3)| {}        & |[]      (B3)| {}      & |[dot]   (S3)| {} \\[1cm]
+            |[dot]   (A4)| {}        & |[dot]   (B4)| {}      & |[]      (S4)| {} \\[2cm]
+            |[end]   (A5)| {}        & |[end]   (B5)| {}      & |[end]   (S5)| {} \\
+        };
+        
+        \draw (A0) edge[implies] (A1);
+        \draw (A1) edge[implies] (A3);
+        \draw (A3) edge[implies] (A4);
+        \draw (A4) edge[implies] (A5);
+        
+        \draw (B0) edge[implies] (B1);
+        \draw (B1) edge[implies] (B2);
+        \draw (B2) edge[implies] (B4);
+        \draw (B4) edge[implies] (B5);
+        
+        \draw (S0) edge[implies] (S2);
+        \draw (S2) edge[implies] (S3);
+        \draw (S3) edge[implies] (S5);
+        
+        \draw (A1) edge[->] node[above] {$A,N_A$} (B1);
+        \draw (B2) edge[->] node[above] {$B, \{|A, N_A, N_B|\}_{sk(B,S)}$} (S2);
+        \draw (S3) edge[->] node[above] {$\{|B,K_{AB},N_A,N_B|\}_{sk(A,S)},\{|A,K_{AB}|\}_{sk(B,S)}$} (A3);
+        \draw (A4) edge[->] node[above] {$\{|A,K_{AB}|\}_{sk(B,S)},\{|N_B|\}_{K_{AB}}$} (B4);
+        
+        \draw (S2) edge[implies] node[actor,fill=white] {$witness(S,B,pSBKAB,K_{AB})$} (S3);
+        \draw (B4) edge[implies] node[actor,fill=white] {$request(B,S,pSBKAB,K_{AB},ID)$} (B5);
+        
+        \end{tikzpicture}
+    \caption{Attack against the goal ``$B$ weakly authenticates $S$ on $KAB$''.}
+    \label{whitnessRequest}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{tikzpicture}[
+                auto, 
+                thick,
+                r/.style={circle, draw, thin,fill=dtured!20,scale=0.5},
+                client/.style={circle, draw, thin,fill=blue!20},
+                >=stealth',
+            ]
+
+            % Physical layer nodes
+            \foreach\place/\x in {
+               {(0.3,-2.5)/1},
+               {(-0.55,-1.75)/2},
+               {(0.85,-0.8)/3},
+               {(-1.7,-0.75)/4},
+               {(0,-0.25)/5},
+               {(0.7,0.25)/6},
+               {(-0.3,0.75)/7}, 
+               {(2.5,0.4)/9},
+               {(2.5,-0.7)/0}}
+            \node[r] (r\x) at \place{$r_{\x}$};
+
+            \node[client] (client) at (5.0,0.0) {$u$};
+            \node[r,fill=green!20] (r8) at (1.5,2) {$r_8$};
+
+            % Physical layer links
+            \path[thin,draw,-> ] (r1) edge (r2);
+            \path[thin,draw,-> ] (r1) edge (r3);
+            \path[thin,draw,->,bend left=10] (r2) edge (r3);
+            \path[thin,draw,->,bend left=10] (r3) edge (r2);
+            \path[thin,draw,-> ] (r3) edge (r6);
+            \path[thin,draw,-> ] (r4) edge (r2);
+            \path[thin,draw,-> ] (r5) edge (r6);
+            \path[thin,draw,-> ] (r5) edge (r4);
+            \path[thin,draw,-> ] (r5) edge (r2);
+            \path[thin,draw,-> ] (r7) edge (r5);
+            \path[thin,draw,-> ] (r6) edge (r7);
+            \path[thin,draw,-> ] (r6) edge (r9);
+            \path[thin,draw,-> ] (r6) edge (r8);
+            \path[thin,draw,-> ] (r8) edge (r9);
+            \path[thin,draw,-> ] (r7) edge (r8);
+            \path[thin,draw,-> ] (r7) edge (r4);
+            \path[thin,draw,->,bend left=10] (r0) edge (r1);
+            \path[thin,draw,->,bend left=10] (r1) edge (r0);
+            \path[thin,draw,-> ] (r0) edge (r6);
+            \path[thin,draw,-> ] (r9) edge (r0);
+
+            % Client
+            \path[thin,dashed,draw,->] (client) edge (r8);
+        \end{tikzpicture}
+    \caption{Initial topology of sensor network. $r_n$ is a regular node, $u$ is the user. Edges represent how the nodes know each other.}
+    \label{topology}
+\end{figure}
+
+\begin{figure}
+    \centering
+        \begin{tikzpicture}[
+                auto,
+                font={\sffamily},
+                myStop/.style={circle, draw, thin, fill=black},
+                myStation/.style={circle, draw, thin,fill=blue!20},
+                myStationName/.style={rectangle, draw, thin,fill=blue!20,node distance=16pt},
+                myArrows/.style={thick,->,line width=2pt},
+                myDesc/.style={node distance=2pt,font={\itshape}},
+            ]
+            \node[myStop] (hend) at (0,0)  {};
+            \node[myStation] (h) at (2,0)  {h};
+            \node[myStation,anchor=east] (b) at (6.0,0)  {b};
+            \node[myStation,anchor=west] (l) at (8.0,1)  {l};
+            \node[myStation,anchor=west] (k) at (8.0,-1) {k};
+            \node[myStop] (lend) at (10, 1)  {};
+            \node[myStop] (kend) at (10, -1) {};
+            
+            \node[myStationName, below=of h] (hel) {Hellerup};
+            \node[myStationName, below=of k] (kla) {Klampenborg};
+            \node[myStationName, above=of l] (lyn) {Lyngby};
+            
+            \draw [-] (hend) to (h);
+            \draw [-] (l) to (lend);
+            \draw [-] (k) to (kend);
+            
+            \draw (hel) -- (h);
+            \draw (lyn) -- (l);
+            \draw (kla) -- (k);
+            
+            \draw[myArrows] (h) to node[myDesc,above] {Connection} (b);
+            \draw[myArrows] (b) .. controls ([xshift=2cm] b) and ([xshift=-1.5cm] l) .. (l);
+            \draw[myArrows] (b) .. controls ([xshift=2cm] b) and ([xshift=-1.5cm] k) .. (k);
+            
+            \node[myDesc, above=of b] {Id};
+            \node[myDesc, left=of lyn] {Station};
+            \node[myDesc, below=of hend] {End};
+        \end{tikzpicture}
+  \caption{Objects in the intermediate network graph.}
+  \label{network-objects}
+\end{figure}

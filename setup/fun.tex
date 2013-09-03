@@ -1,0 +1,43 @@
+% This is a double sided book. If there is a last empty page lets use it for some fun.
+% For a fully functional hack the \clearpage used in \include does some odd thinks with the sequence numbering. Thefore use \input instead of \include at the end of the book.
+\makeatletter
+% Adjust so gatherings is allowd for single sheets too!
+\renewcommand*{\leavespergathering}[1]{\@memcnta=#1\relax
+                                     \ifnum\@memcnta<\@ne  %  <--- changed from \@tw (2) to \@ne (1)
+                                       \def\@mempagespersig{-1}%
+                                     \else
+                                       \multiply\@memcnta \tw@
+                                       \edef\@mempagespersig{\@memcnta}%
+                                     \fi}
+% Adjust the gathering hook
+\renewcommand*{\@memensuresigpages}{%
+  \ifnum\@mempagespersig<\@ne
+  \else
+    \iscntrmod{sheetsequence}{\@mempagespersig}
+    \ifcntrmod
+    \else
+      \clearpage
+      \markboth{}{}
+      \pagestyle{cleared}
+      \mbox{}
+      \loop
+        \iscntrmod{sheetsequence}{\@mempagespersig}
+        \ifnotcntrmod
+            \clearpage
+            \markboth{}{}
+            \pagestyle{cleared}
+            \mbox{}
+      \repeat
+      % Add actual content to last page
+      \AddToShipoutPictureBG*{
+            \put(0,0){
+                \parbox[b][\paperheight]{\paperwidth}{%
+                    \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{graphics/DTU-frise-SH-15}
+                    \vspace*{2.5cm}
+                }
+            }
+      }
+    \fi
+  \fi}
+\makeatother
+\leavespergathering{1}
