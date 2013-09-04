@@ -184,6 +184,8 @@ There are \total{todocounter} todos left.
 }
 \pagestyle{myruled}
 \copypagestyle{cleared}{myruled}      % When \cleardoublepage, use myruled instead of empty
+\makeevenhead{cleared}{\hffont\thepage}{}{} % Remove leftmark on cleared pages
+
 \makeevenfoot{plain}{}{}{}            % No page number on plain even pages (chapter begin)
 \makeoddfoot{plain}{}{}{}             % No page number on plain odd pages (chapter begin)
 
