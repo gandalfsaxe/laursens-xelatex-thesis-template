@@ -41,7 +41,6 @@
     matrix,
     positioning,
     shapes,
-    snakes,
     topaths,
 }
 \pgfplotsset{compat=1.7}
@@ -191,21 +190,22 @@ There are \total{todocounter} todos left.
 
 % Hypersetup
 \hypersetup{
-    %pdfauthor={},
-    %pdftitle={},
-    %pdfsubject={},
+    pdfauthor={\thesisauthor{}},
+    pdftitle={\thesistitle{}},
+    pdfsubject={\thesissubtitle{}},
+    pdfdisplaydoctitle,
     bookmarksnumbered=true,
     bookmarksopen,
     breaklinks,
     linktoc=all,
     plainpages=false,
     unicode=true,
-    colorlinks,
-    citecolor=dtured,                 % color of links to bibliography
-    filecolor=dtured,                 % color of file links
-    linkcolor=dtured,                 % color of internal links (change box color with linkbordercolor)
-    urlcolor=s13,                     % color of external links
-    %hidelinks,                       % Printed version without colored links?
+    colorlinks=false,
+    citebordercolor=dtured,           % color of links to bibliography
+    filebordercolor=dtured,           % color of file links
+    linkbordercolor=dtured,           % color of internal links (change box color with linkbordercolor)
+    urlbordercolor=s13,               % color of external links
+    %hidelinks,                       % Do not show boxes or colored links.
 }
 % Hack to make right pdfbookmark link. The normal behavior links just below the chapter title. This hack put the link just above the chapter like any other normal use of \chapter.
 % Another solution can be found in http://tex.stackexchange.com/questions/59359/certain-hyperlinks-memoirhyperref-placed-too-low
