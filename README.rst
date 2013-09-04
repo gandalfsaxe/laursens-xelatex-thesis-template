@@ -22,38 +22,48 @@ The setup uses
 * "Latin Modern Math" (lm-math) for math,
 * "TeX Gyre Adventor" (tex-gyre) for sans-serif fonts
 
-which maximizes unicode support. These are public fonts which can be installed from your system from:
-
-::
+which maximizes unicode support. These are public fonts which can be installed from your system from::
 
  /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
 
 Note that the standard DTU font (NeoSans) is the ultimative font for headings but due to lack of symbols 
-e.g. the plus '+' symbols is not incorporated, it is not wise to use. One can use a similar font 
-called Neo Sans Intel to get the DTU look. Due to fact that these fonts are proprietary this repo does 
+(e.g. the plus '+' symbols is not incorporated) it is not wise to use. One can use a similar font 
+called "Neo Sans Intel" to get the DTU look. Due to fact that these fonts are proprietary this repo does 
 not include them. The standard sans-serif font is therefore set to TeX Gyre Adventor.
 
-If the Neo Sans * fonts are installed on your system (un)comment the respective lines in the preamble.
+If the Neo Sans* fonts are installed on your system (un)comment the respective lines in the preamble.
 
 Usage
 =====
 
-If make is installed run
+make
+----
 
-::
+Run::
 
  make
 
+TextMate
+--------
 If using TextMate simply press "⌘ R".
+
+Texmaker
+--------
+In preferences change "Quick Build" option to::
+
+  XeLaTeX + View PDF
+
+Ensure under "Editor" that "Editor Font Encoding" is set to::
+
+  UTF-8
+
 
 Further info
 ============
 
 Confidential thesis
 -------------------
-The command
-
-::
+The command::
 
  \confidential
 
@@ -63,4 +73,4 @@ Uncomment in Thesis.tex
 Printing
 --------
 If the pdf should be printed, trim marks can be enabled and the stock format changed to A4 ready for cut.
-
+This is done in the top of the preamble.
