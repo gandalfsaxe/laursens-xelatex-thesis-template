@@ -271,3 +271,15 @@ There are \total{todocounter} todos left.
     \AddToShipoutPictureBG{\confidentialbox{10}}   % 10% classified box in background on each page
     \AddToShipoutPictureFG*{\confidentialbox{100}} % 100% classified box in foreground on first page
 }
+
+% DTU frieze
+\newcommand{\frieze}{%
+    \AddToShipoutPicture*{
+        \put(0,0){
+            \parbox[b][\paperheight]{\paperwidth}{%
+                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{graphics/DTU-frise-SH-15}
+                \vspace*{2.5cm}
+            }
+        }
+    }
+}
