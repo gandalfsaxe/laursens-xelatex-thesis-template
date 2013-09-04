@@ -1,0 +1,13 @@
+syntax: glob
+
+Thesis.pdf
+**/*.aux
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.tdo
+*.toc
+*.xdv
