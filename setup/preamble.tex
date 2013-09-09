@@ -26,10 +26,6 @@
 \checkandfixthelayout                 % Check if errors!
 \sideparmargin{outer}                 % Put sidemargins in outer position (why the fuck is this option not default by the class?)
 
-% Language
-\usepackage[danish,english]{babel}    % Allows langauge switching
-\selectlanguage{english}
-
 % Large environments
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -75,6 +71,11 @@
 %\setsansfont[Ligatures=TeX]{Neo Sans Intel}    % Neo Sans Intel – Like DTU font but more symbols
 %\setsansfont[Ligatures=TeX]{NeoSans}           % NeoSans – DTU font (missing `+' symbols and other)
 %\setsansfont[Ligatures=TeX]{CMU Sans Serif}    % Computer Modern Unicode font
+
+% Language
+\usepackage{polyglossia}    % multilingual typesetting and appropriate hyphenation
+\setdefaultlanguage{english}
+\setotherlanguages{danish}
 
 % Floating objets, captions and references
 \usepackage[noabbrev,nameinlink,capitalise]{cleveref} % Clever references. Options: "fig. !1!" --> "!Figure 1!"
