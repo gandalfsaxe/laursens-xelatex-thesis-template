@@ -108,21 +108,12 @@
 \newcommand*{\newmissingfigure}[2][]{\stepcounter{todocounter}\oldmissingfigure[#1]{\#\thetodocounter~#2}}
 \let\missingfigure\newmissingfigure
 \makeatletter
-\let\oldlistoftodos\listoftodos
-\newcommand{\newlistoftodos}{%
-    \markboth{\@todonotes@todolistname}{\@todonotes@todolistname}
-    \@ifstar{\oldlistoftodos}{\phantomsection\todototoc\oldlistoftodos}}
-\let\listoftodos\newlistoftodos
-\newcommand*{\totaltodos}{%
-\if@todonotes@disabled
-\else
-There are \total{todocounter} todos left.
-\fi
-}
 \newcommand*{\mylistoftodos}{% Only show list if there are todos
 \if@todonotes@disabled
 \else
     \ifnum\totvalue{todocounter}>0
+        \markboth{\@todonotes@todolistname}{\@todonotes@todolistname}
+        \phantomsection\todototoc
         \listoftodos
     \else
     \fi
