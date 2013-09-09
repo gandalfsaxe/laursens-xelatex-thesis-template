@@ -54,23 +54,24 @@
 \usepackage{eso-pic}                  % Watermark and other bag
 \usepackage{setup/dtucolors}
 
-% Fonts (http://www.macfreek.nl/memory/Fonts_in_LaTeX)
+% Text fonts (http://www.macfreek.nl/memory/Fonts_in_LaTeX)
 % Install fonts from /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
 \usepackage{fontspec}
-\usepackage[math-style=TeX]{unicode-math}
 
 % Serif font
 \setmainfont[Ligatures=TeX]{CMU Serif}% Computer Modern Unicode font
 \setmonofont{CMU Typewriter Text}     % Computer Modern Unicode font
-
-% Math font
-\setmathfont{Latin Modern Math}
 
 % Sans-serif font
 \setsansfont[Ligatures=TeX]{TeX Gyre Adventor} % Sans serif font based on ITC Avant Garde Gothic
 %\setsansfont[Ligatures=TeX]{Neo Sans Intel}    % Neo Sans Intel – Like DTU font but more symbols
 %\setsansfont[Ligatures=TeX]{NeoSans}           % NeoSans – DTU font (missing `+' symbols and other)
 %\setsansfont[Ligatures=TeX]{CMU Sans Serif}    % Computer Modern Unicode font
+
+% Math font
+%Error: http://tex.stackexchange.com/questions/131627/clickable-box-malformed-in-toc-when-using-math-in-heading-and-the-latin-modern-m
+%\usepackage[math-style=TeX]{unicode-math}
+%\setmathfont{Latin Modern Math}
 
 % Language
 \usepackage{polyglossia}    % multilingual typesetting and appropriate hyphenation
