@@ -19,7 +19,6 @@ Fonts
 The setup uses 
 
 * "Computer Modern Unicode" (cm-unicode) as standard fonts,
-* "Latin Modern Math" (lm-math) for math,
 * "TeX Gyre Adventor" (tex-gyre) for sans-serif fonts
 
 which maximizes unicode support. These are public fonts which can be installed from your system from::
@@ -32,6 +31,12 @@ called "Neo Sans Intel" to get the DTU look. Due to fact that these fonts are pr
 not include them. The standard sans-serif font is therefore set to TeX Gyre Adventor.
 
 If the Neo Sans* fonts are installed on your system (un)comment the respective lines in the preamble.
+
+If you want more unicode support in math mode also install
+
+* "Latin Modern Math" (lm-math) for math,
+
+and uncomment the respective lines in the preamble.
 
 Usage
 =====
