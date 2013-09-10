@@ -3,13 +3,10 @@ BIBTEX=bibtex
 
 all: Thesis.pdf
 
-Report.pdf :\
-	appendices/*.tex \
-	bibliography/*.bib \
-	chapters/*.tex \
-	frontmatter/*.tex \
-	prefrontmatter/*.tex \
-	setup/*.tex \
+Thesis.pdf :\
+	**/*.tex \
+	**/*.bib \
+	graphics/** \
 	makefile \
 
 clean:
