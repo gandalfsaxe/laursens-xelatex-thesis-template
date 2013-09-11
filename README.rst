@@ -25,6 +25,11 @@ which maximizes unicode support. These are public fonts which can be installed f
 
  /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
 
+They can also be downloaded via CTAN:
+
+ * `Computer Modern Unicode <http://www.ctan.org/tex-archive/fonts/cm-unicode>`_
+ * `TeX Gyre <http://www.ctan.org/tex-archive/fonts/tex-gyre>`_
+
 Note that the standard DTU font (NeoSans) is the ultimative font for headings but due to lack of symbols
 (e.g. the plus '+' symbols is not incorporated) it is not wise to use. One can use a similar font
 called "Neo Sans Intel" to get the DTU look. Due to fact that these fonts are proprietary this repo does
