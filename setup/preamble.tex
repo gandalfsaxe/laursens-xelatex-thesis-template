@@ -39,14 +39,14 @@
     shapes,
     topaths,
 }
-\pgfplotsset{compat=1.7}
+\pgfplotsset{compat=1.8}
 
 % Symbols
 \usepackage{amsmath,amssymb,latexsym} % AMS and other symbols
 
 % Links
 \usepackage[hyphens]{url}             % Allow hyphens in URL's
-\usepackage[unicode,psdextra]{hyperref}                 % References package
+\usepackage[unicode=false,psdextra]{hyperref}                 % References package
 
 % Graphics and colors
 \usepackage{graphicx}                 % Including graphics and using colours
@@ -58,20 +58,23 @@
 % Install fonts from /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
 \usepackage{fontspec}
 
-% Serif font
-\setmainfont[Ligatures=TeX]{CMU Serif}% Computer Modern Unicode font
-\setmonofont{CMU Typewriter Text}     % Computer Modern Unicode font
+%% Serif font
+\setmainfont[Ligatures=TeX]{CMU Serif}% Computer Modern Unicode
+\setmonofont{CMU Typewriter Text}     % Computer Modern Unicode
+%\setmainfont[Ligatures=TeX]{Latin Modern Roman} % Latin Modern Serif
+%\setmonofont{Latin Modern Mono}      % Latin Modern Mono
 
-% Sans-serif font
+%% Sans-serif font
 \setsansfont[Ligatures=TeX]{TeX Gyre Adventor} % Sans serif font based on ITC Avant Garde Gothic
 %\setsansfont[Ligatures=TeX]{Neo Sans Intel}    % Neo Sans Intel – Like DTU font but more symbols
 %\setsansfont[Ligatures=TeX]{NeoSans}           % NeoSans – DTU font (missing `+' symbols and other)
 %\setsansfont[Ligatures=TeX]{CMU Sans Serif}    % Computer Modern Unicode font
+%\setsansfont[Ligatures=TeX]{Latin Modern Sans} % Latin Modern Sans serif font
 
-% Math font
-%Error: http://tex.stackexchange.com/questions/131627/clickable-box-malformed-in-toc-when-using-math-in-heading-and-the-latin-modern-m
-%\usepackage[math-style=TeX]{unicode-math}
-%\setmathfont{Latin Modern Math}
+%% Math font
+% Error: http://tex.stackexchange.com/questions/131627
+\usepackage[math-style=TeX]{unicode-math}
+\setmathfont{Latin Modern Math}
 
 % Language
 \usepackage{polyglossia}    % multilingual typesetting and appropriate hyphenation
