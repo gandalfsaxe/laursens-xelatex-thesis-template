@@ -22,13 +22,15 @@ The setup uses the following fonts:
 * `TeX Gyre Adventor <http://www.ctan.org/tex-archive/fonts/tex-gyre>`_
 
 They are contained in TeXLive and MiKTeX setup by default so no extra setup is necessary.
-If you want more unicode support in math mode use the Latin Modern Math by uncomment the lines in 
-the bottom of ``setup/font.tex``. NB there are `hyperref errors with math symbols using this font in 
+If you want more unicode support in math mode use the
+`Latin Modern Math <http://www.ctan.org/tex-archive/fonts/lm-math>`_ by uncomment the lines in
+the bottom of ``setup/font.tex``. NB there are `hyperref errors with math symbols using this font in
 headings <http://tex.stackexchange.com/questions/131627>`_.
 
-Note that the standard Neo Sans (DTU font) is the ultimative font for headings but due to lack of symbols
-it is not wise to use. One can use a similar font called "Neo Sans Intel" to get the DTU look. If the
-Neo Sans (Intel) font are installed on your system (un)comment the respective lines in ``setup/font.tex``.
+Note that `Neo Sans <http://www.monotype.co.uk/neosans/>`_ font (DTU's main font) is the ultimative font
+for headings. A similar font called Neo Sans Intel is also a good alternative which typically contains
+more symbols. If the Neo Sans (Intel) font are installed on your system (un)comment the respective lines
+in ``setup/font.tex``.
 
 Usage
 =====
