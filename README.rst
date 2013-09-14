@@ -16,32 +16,19 @@ Standard (updated) TeX Live package including XeLaTeX and BibTeX.
 
 Fonts
 -----
-The setup uses
-
-* "Computer Modern Unicode" (cm-unicode) as standard fonts,
-* "TeX Gyre Adventor" (tex-gyre) for sans-serif fonts
-
-which maximizes unicode support. These are public fonts which can be installed from your system from::
-
- /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
-
-They can also be downloaded via CTAN:
+The setup uses the following fonts:
 
 * `Computer Modern Unicode <http://www.ctan.org/tex-archive/fonts/cm-unicode>`_
-* `TeX Gyre <http://www.ctan.org/tex-archive/fonts/tex-gyre>`_
+* `TeX Gyre Adventor <http://www.ctan.org/tex-archive/fonts/tex-gyre>`_
 
-Note that the standard DTU font (NeoSans) is the ultimative font for headings but due to lack of symbols
-(e.g. the plus '+' symbols is not incorporated) it is not wise to use. One can use a similar font
-called "Neo Sans Intel" to get the DTU look. Due to fact that these fonts are proprietary this repo does
-not include them. The standard sans-serif font is therefore set to TeX Gyre Adventor.
+They are contained in TeXLive and MiKTeX setup by default so no extra setup is necessary.
+If you want more unicode support in math mode use the Latin Modern Math by uncomment the lines in 
+the bottom of ``setup/font.tex``. NB there are `hyperref errors with math symbols using this font in 
+headings <http://tex.stackexchange.com/questions/131627>`_.
 
-If the Neo Sans* fonts are installed on your system (un)comment the respective lines in the preamble.
-
-If you want more unicode support in math mode also install
-
-* "Latin Modern Math" (lm-math) for math,
-
-and uncomment the respective lines in the preamble.
+Note that the standard Neo Sans (DTU font) is the ultimative font for headings but due to lack of symbols
+it is not wise to use. One can use a similar font called "Neo Sans Intel" to get the DTU look. If the
+Neo Sans (Intel) font are installed on your system (un)comment the respective lines in ``setup/font.tex``.
 
 Usage
 =====
