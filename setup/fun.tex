@@ -1,37 +1,11 @@
 %!TEX root = ../Thesis.tex
-% This is a double sided book. If there is a last empty page lets use it for some fun.
-% For a fully functional hack the \clearpage used in \include does some odd thinks with the sequence numbering. Thefore use \input instead of \include at the end of the book.
+% This is a double sided book. If there is a last empty page lets use it for some fun e.g. the frieze.
+% NB: For a fully functional hack the \clearpage used in \include does some odd thinks with the sequence numbering. Thefore use \input instead of \include at the end of the book. If bibliography is used at last everything should be ok.
 \makeatletter
-% Adjust so gatherings is allowd for single sheets too!
-\renewcommand*{\leavespergathering}[1]{\@memcnta=#1\relax
-                                     \ifnum\@memcnta<\@ne  %  <--- changed from \@tw (2) to \@ne (1)
-                                       \def\@mempagespersig{-1}%
-                                     \else
-                                       \multiply\@memcnta \tw@
-                                       \edef\@mempagespersig{\@memcnta}%
-                                     \fi}
-% Adjust the gathering hook
-\renewcommand*{\@memensuresigpages}{%
-  \ifnum\@mempagespersig<\@ne
-  \else
-    \iscntrmod{sheetsequence}{\@mempagespersig}
-    \ifcntrmod
-    \else
-      \clearpage
-      \markboth{}{}
-      \pagestyle{empty}
-      \mbox{}
-      \loop
-        \iscntrmod{sheetsequence}{\@mempagespersig}
-        \ifnotcntrmod
-            \clearpage
-            \markboth{}{}
-            \pagestyle{empty}
-            \mbox{}
-      \repeat
-      % Add actual content to last page
-      \frieze
-    \fi
-  \fi}
+% Adjust so gatherings is allowd for single sheets too! (hacking functions in memoir.dtx)
+\patchcmd{\leavespergathering}{\ifnum\@memcnta<\tw@}{\ifnum\@memcnta<\@ne}{
+    \leavespergathering{1}
+    % Insert the frieze
+    \patchcmd{\@memensuresigpages}{\repeat}{\repeat\frieze}{}{}
+}{}
 \makeatother
-\leavespergathering{1}
