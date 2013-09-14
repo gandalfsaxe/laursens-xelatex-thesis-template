@@ -39,7 +39,7 @@
     shapes,
     topaths,
 }
-\pgfplotsset{compat=1.8}
+\pgfplotsset{compat=1.7}
 
 % Symbols
 \usepackage{amsmath,amssymb,latexsym} % AMS and other symbols
@@ -53,6 +53,7 @@
 \usepackage{xcolor}                   % Defined more color names
 \usepackage{eso-pic}                  % Watermark and other bag
 \usepackage{preamble/dtucolors}
+\graphicspath{{graphics/}}
 
 % Language
 \usepackage{polyglossia}    % multilingual typesetting and appropriate hyphenation
@@ -250,7 +251,7 @@
     \AddToShipoutPicture*{
         \put(0,0){
             \parbox[b][\paperheight]{\paperwidth}{%
-                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{graphics/DTU-frise-SH-15}
+                \includegraphics[trim=130mm 0 0 0,width=0.9\textwidth]{DTU-frise-SH-15}
                 \vspace*{2.5cm}
             }
         }
