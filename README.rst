@@ -24,13 +24,13 @@ The setup uses the following fonts:
 They are contained in TeXLive and MiKTeX setup by default so no extra setup is necessary.
 If you want more unicode support in math mode use the
 `Latin Modern Math <http://www.ctan.org/tex-archive/fonts/lm-math>`_ by uncomment the lines in
-the bottom of ``setup/font.tex``. NB there are `hyperref errors with math symbols using this font in
+the bottom of ``preamble/fonts.tex``. NB there are `hyperref errors with math symbols using this font in
 headings <http://tex.stackexchange.com/questions/131627>`_.
 
 Note that `Neo Sans <http://www.monotype.co.uk/neosans/>`_ font (DTU's main font) is the ultimative font
 for headings. A similar font called Neo Sans Intel is also a good alternative which typically contains
 more symbols. If the Neo Sans (Intel) font are installed on your system (un)comment the respective lines
-in ``setup/font.tex``.
+in ``preamble/fonts.tex``.
 
 Usage
 =====
@@ -42,7 +42,7 @@ There are two ways to use make either by::
 
  make
 
-or the auto mode which automatic updates the pdf if *.tex or *.bib files are changed::
+or the auto mode which automatic updates the pdf if \*.tex or \*.bib files are changed::
 
  make auto
 
