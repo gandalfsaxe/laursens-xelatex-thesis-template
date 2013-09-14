@@ -11,3 +11,5 @@ Thesis.pdf
 *.tdo
 *.toc
 *.xdv
+*.fdb_latexmk
+*.fls

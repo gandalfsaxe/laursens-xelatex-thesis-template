@@ -1,23 +1,14 @@
 XELATEX=xelatex -file-line-error -interaction=nonstopmode
-BIBTEX=bibtex
 
-all: Thesis.pdf
+.PHONY: all
+all: Thesis.tex
+	latexmk -pdf -pdflatex="$(XELATEX)" -use-make Thesis.tex
 
-Thesis.pdf :\
-	**/*.tex \
-	**/*.bib \
-	graphics/** \
-	makefile \
+.PHONY: auto
+auto: Thesis.tex
+	latexmk -pdf -pdflatex="$(XELATEX)" -use-make -pvc Thesis.tex
 
+.PHONY: clean
 clean:
 	rm -f Thesis.pdf *.aux *.bbl *.blg *.log *.out *.tdo *.toc *.xdv *.synctex.gz; \
 	rm -f **/*.aux
-
-%.pdf: %.tex
-	@echo "Compiling $*"
-	$(XELATEX) --no-pdf $* 2>&1;\
-	$(BIBTEX) $*;\
-	$(XELATEX) --no-pdf $* 2>&1;\
-	$(XELATEX) $* 2>&1;\
-
-.PHONY: all clean

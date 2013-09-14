@@ -38,9 +38,17 @@ Usage
 make
 ----
 
-Run::
+There are two ways to use make either by::
 
  make
+
+or the auto mode which automatic updates the pdf if *.tex or *.bib files are changed::
+
+ make auto
+
+To clean up project run::
+
+ make clean
 
 TextMate
 --------
