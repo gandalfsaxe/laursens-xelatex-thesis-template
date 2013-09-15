@@ -61,8 +61,11 @@
 
 % Floating objets, captions and references
 \usepackage[noabbrev,nameinlink,capitalise]{cleveref} % Clever references. Options: "fig. !1!" --> "!Figure 1!"
-\usepackage[format=hang,labelfont=bf,textfont=normalsize]{caption} % Nice captions
-\usepackage{subfig}                   % Subfigures
+\hangcaption
+\captionnamefont{\bfseries}
+\subcaptionlabelfont{\bfseries}
+\newsubfloat{figure}
+\newsubfloat{table}
 \letcountercounter{figure}{table}     % Consecutive table and figure numbering
 
 % Table of contents (TOC)
