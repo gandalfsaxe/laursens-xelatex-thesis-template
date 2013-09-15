@@ -71,16 +71,15 @@
 % Table of contents (TOC)
 \setcounter{tocdepth}{1}              % Depth of table of content
 \setcounter{secnumdepth}{2}           % Depth of section numbering
-\usepackage{shorttoc}                 % Short table of contents
-% Put short contents as pdf bookmark only
-\makeatletter
-\let\oldshorttableofcontents\shorttableofcontents
-\newcommand{\newshorttableofcontents}[2]{
-    \phantomsection\pdfbookmark[0]{#1}{#1}
-    \oldshorttableofcontents{#1}{#2}
+\newcommand{\shorttableofcontents}[2]{
+    \newcounter{oldtocdepth}\setcounter{oldtocdepth}{\value{tocdepth}} 
+    \let\oldcontentsname\contentsname
+    \renewcommand*{\contentsname}{#1}
+    \setcounter{tocdepth}{#2}
+    \tableofcontents
+    \setcounter{tocdepth}{\value{oldtocdepth}}
+    \renewcommand*{\contentsname}{\oldcontentsname}
 }
-\let\shorttableofcontents\newshorttableofcontents
-\makeatother
 
 % Todos
 \usepackage{totcount}                 % For total counting of counters
