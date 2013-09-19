@@ -5,9 +5,13 @@ Laursen's XeLaTeX thesis template
 This is an alternative to the "LUKE'S PHD THESIS TEMPLATE 1.2" used as standard layout for the
 thesis written at DTU Compute.
 
-The template is using the Memoir class which includes a lot of use full and predefined commands. See the
-"Miscellaneous" chapter of the Memoir manual. Furthermore it uses XeLaTeX for maximum unicode support and
-for the support of using local fonts.
+The template is using the `Memoir class <http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/>`_ 
+which includes a lot of useful and predefined commands. See the "Miscellaneous" chapter of the 
+`Memoir manual <http://tug.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf>`_. 
+Furthermore it uses XeLaTeX for maximum unicode support local fonts.
+
+An updated version of the code can be downloaded from the
+`repository at bitbucket.org <https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/>`_.
 
 Requirements
 ============
@@ -21,7 +25,7 @@ The setup uses the following fonts:
 * `Computer Modern Unicode <http://www.ctan.org/tex-archive/fonts/cm-unicode>`_
 * `TeX Gyre Adventor <http://www.ctan.org/tex-archive/fonts/tex-gyre>`_
 
-They are contained in TeXLive and MiKTeX setup by default so no extra setup is necessary.
+They are contained in TeXLive and MiKTeX installation by default so no extra setup is necessary.
 If you want more unicode support in math mode use the
 `Latin Modern Math <http://www.ctan.org/tex-archive/fonts/lm-math>`_ by uncomment the lines in
 the bottom of ``preamble/fonts.tex``. NB there are `hyperref errors with math symbols using this font in
@@ -42,7 +46,7 @@ There are two ways to use make either by::
 
  make
 
-or the auto mode which automatic updates the pdf if \*.tex or \*.bib files are changed::
+or the ``auto`` mode which automatic updates the pdf if \*.tex or \*.bib files are changed::
 
  make auto
 
@@ -52,7 +56,7 @@ To clean up project run::
 
 TextMate
 --------
-If using TextMate simply press "⌘ R".
+If using TextMate simply press "⌘R".
 
 Texmaker
 --------
