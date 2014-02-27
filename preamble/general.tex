@@ -29,22 +29,8 @@
 
 % Large environments
 \usepackage{microtype}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{tikz}                     % Drawing tool
-\usepackage{pgfplots}                 % Plot tools
-\usepackage{listings}                 % Source code printer for LaTeX
-\usetikzlibrary{
-    arrows,
-    matrix,
-    positioning,
-    shapes,
-    topaths,
-}
-\pgfplotsset{compat=1.7}
-
-% Symbols
-\usepackage{amsmath,amssymb,latexsym} % AMS and other symbols
+\usepackage{mathtools}
+\usepackage{tikz}
 
 % Links
 \usepackage[hyphens]{url}             % Allow hyphens in URL's
@@ -73,15 +59,6 @@
 % Table of contents (TOC)
 \setcounter{tocdepth}{1}              % Depth of table of content
 \setcounter{secnumdepth}{2}           % Depth of section numbering
-\newcommand{\shorttableofcontents}[2]{
-    \newcounter{oldtocdepth}\setcounter{oldtocdepth}{\value{tocdepth}} 
-    \let\oldcontentsname\contentsname
-    \renewcommand*{\contentsname}{#1}
-    \setcounter{tocdepth}{#2}
-    \tableofcontents
-    \setcounter{tocdepth}{\value{oldtocdepth}}
-    \renewcommand*{\contentsname}{\oldcontentsname}
-}
 
 % Todos
 \usepackage{totcount}                 % For total counting of counters
@@ -138,7 +115,7 @@
 
     \renewcommand*{\printchaptertitle}[1]{\raggedleft \chaptitlefont ##1}
     \renewcommand*{\afterchaptertitle}{\vskip0.5\onelineskip \hrule \vskip1.3\onelineskip}
-    
+
 }
 \makeatother
 \chapterstyle{mychapterstyle}
@@ -206,32 +183,6 @@
         \phantomsection\addcontentsline{toc}{chapter}{\contentsname}\oldtableofcontents*}}
 \let\tableofcontents\newtableofcontents
 \makeatother
-
-% Listings
-\lstset{
-    basicstyle=\footnotesize\ttfamily,% the size of the fonts that are used for the code
-    breakatwhitespace=false,          % sets if automatic breaks should only happen at whitespace
-    breaklines=true,                  % sets automatic line breaking
-    captionpos=b,                     % sets the caption-position to bottom
-    commentstyle=\color{s14a},        % comment style
-    deletekeywords={},                % if you want to delete keywords from the given language
-    escapeinside={\%*}{*)},           % if you want to add LaTeX within your code
-    frame=single,                     % adds a frame around the code
-    keywordstyle=\bfseries\ttfamily\color{s09}, % keyword style
-    language=Python,                  % the language of the code
-    morekeywords={*,...},             % if you want to add more keywords to the set
-    numbers=left,                     % where to put the line-numbers; possible values are (none, left, right)
-    numbersep=5pt,                    % how far the line-numbers are from the code
-    numberstyle=\sffamily\tiny\color{dtugray}, % the style that is used for the line-numbers
-    rulecolor=\color{dtugray},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-    showspaces=false,                 % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-    showstringspaces=false,           % underline spaces within strings only
-    showtabs=false,                   % show tabs within strings adding particular underscores
-    stepnumber=1,                     % the step between two line-numbers. If it's 1, each line will be numbered
-    stringstyle=\color{s07},          % string literal style
-    tabsize=2,                        % sets default tabsize to 2 spaces
-    title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
-}
 
 % Confidential
 \newcommand{\confidentialbox}[1]{
