@@ -1,30 +1,51 @@
 %!TEX root = ../Thesis.tex
-\RequirePackage[l2tabu, orthodox]{nag} % Old habits die hard
-\documentclass[10pt,twoside,b5paper,showtrims]{memoir}
+\RequirePackage[l2tabu,orthodox]{nag} % Old habits die hard
+
+\newcommand{\papersizeswitch}[3]{\ifnum\strcmp{\papersize}{#1}=0#2\else#3\fi}
+\papersizeswitch{b5paper}{\def\classfontsize{10pt}}{\def\classfontsize{12pt}}
+
+\documentclass[\classfontsize,\papersize,twoside,showtrims]{memoir}
 \RequireXeTeX
 
-% Stock and paper layout
 \showtrimsoff
-\pagebv
-\setlrmarginsandblock{26mm}{20mm}{*}
-\setulmarginsandblock{35mm}{30mm}{*}
-\setheadfoot{8mm}{10mm}
-\setlength{\headsep}{7mm}
-\setlength{\marginparwidth}{18mm}
-\setlength{\marginparsep}{2mm}
+\papersizeswitch{b5paper}{
+    % Stock and paper layout
+    \pagebv
+    \setlrmarginsandblock{26mm}{20mm}{*}
+    \setulmarginsandblock{35mm}{30mm}{*}
+    \setheadfoot{8mm}{10mm}
+    \setlength{\headsep}{7mm}
+    \setlength{\marginparwidth}{18mm}
+    \setlength{\marginparsep}{2mm}
+}{
+    \papersizeswitch{a4paper}{
+        \pageaiv
+        \setlength{\trimtop}{0pt}
+        \setlength{\trimedge}{\stockwidth}
+        \addtolength{\trimedge}{-\paperwidth}
+        \settypeblocksize{634pt}{448.13pt}{*}
+        \setulmargins{4cm}{*}{*}
+        \setlrmargins{*}{*}{0.66}
+        \setmarginnotes{17pt}{51pt}{\onelineskip}
+        \setheadfoot{\onelineskip}{2\onelineskip}
+        \setheaderspaces{*}{2\onelineskip}{*}
+    }{
+    }
+}
+\ifnum\strcmp{\showtrims}{true}=0
+    % For printing B5 on A4 with trimmarks
+    \showtrimson
+    \papersizeswitch{b5paper}{\stockaiv}{\stockaiii}
+    \setlength{\trimtop}{\stockheight}
+    \addtolength{\trimtop}{-\paperheight}
+    \setlength{\trimtop}{0.5\trimtop}
+    \setlength{\trimedge}{\stockwidth}
+    \addtolength{\trimedge}{-\paperwidth}
+    \setlength{\trimedge}{0.5\trimedge}
+    \trimLmarks
+\fi
 
-% For printing B5 on A4 with trimmarks uncomment the following
-%\showtrimson
-%\stockaiv
-%\setlength{\trimtop}{\stockheight}
-%\addtolength{\trimtop}{-\paperheight}
-%\setlength{\trimtop}{0.5\trimtop}
-%\setlength{\trimedge}{\stockwidth}
-%\addtolength{\trimedge}{-\paperwidth}
-%\setlength{\trimedge}{0.5\trimedge}
-%\trimLmarks
-
-\checkandfixthelayout                 % Check if errors!
+\checkandfixthelayout                 % Check if errors in paper format!
 \sideparmargin{outer}                 % Put sidemargins in outer position (why the fuck is this option not default by the class?)
 
 % Large environments
@@ -95,9 +116,9 @@
 \makechapterstyle{mychapterstyle}{
     \chapterstyle{default}
     \def\format{\normalfont\sffamily}
-    
+
     \setlength\beforechapskip{0mm}
-    
+
     \renewcommand*{\chapnamefont}{\format\LARGE}
     \renewcommand*{\chapnumfont}{\format\fontsize{40}{40}\selectfont}
     \renewcommand*{\chaptitlefont}{\format\fontsize{32}{32}\selectfont}
