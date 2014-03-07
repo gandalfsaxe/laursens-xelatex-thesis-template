@@ -108,9 +108,6 @@
 \newcommand{\lesstodo}[2][]{\todo[color=green!40,#1]{#2}}
 \newcommand{\moretodo}[2][]{\todo[color=red!40,#1]{#2}}
 
-% Prefrontmatter
-\newcommand{\prefrontmatter}{\pagenumbering{alph}}
-
 % Chapterstyle
 \makeatletter
 \makechapterstyle{mychapterstyle}{
@@ -220,9 +217,14 @@
         \end{vplace}
     }}
 }
-\newcommand{\confidential}{%
-    \AddToShipoutPictureBG{\confidentialbox{10}}   % 10% classified box in background on each page
-    \AddToShipoutPictureFG*{\confidentialbox{100}} % 100% classified box in foreground on first page
+
+% Prefrontmatter
+\newcommand{\prefrontmatter}{
+    \pagenumbering{alph}
+    \ifnum\strcmp{\confidential}{true}=0
+        \AddToShipoutPictureBG{\confidentialbox{10}}   % 10% classified box in background on each page
+        \AddToShipoutPictureFG*{\confidentialbox{100}} % 100% classified box in foreground on first page
+    \fi
 }
 
 % DTU frieze

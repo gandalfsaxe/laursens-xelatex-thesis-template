@@ -13,6 +13,12 @@ Furthermore it uses XeLaTeX for maximum unicode support local fonts.
 An updated version of the code can be downloaded from the
 `repository at bitbucket.org <https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/>`_.
 
+
+Options
+=======
+
+All static information such as title, author, degree and so on can be changed in ``preamble/static.txt``.
+
 Requirements
 ============
 
@@ -68,20 +74,3 @@ Ensure under "Editor" that "Editor Font Encoding" is set to::
 
   UTF-8
 
-
-Further info
-============
-
-Confidential thesis
--------------------
-The command::
-
- \confidential
-
-Creates a confidential thesis first page with full box and next pages with tinted confidential boxes.
-Uncomment in Thesis.tex
-
-Printing
---------
-If the pdf should be printed, trim marks can be enabled and the stock format changed to A4 ready for cut.
-This is done in the top of the preamble.
