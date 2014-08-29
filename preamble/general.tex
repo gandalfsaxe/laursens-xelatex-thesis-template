@@ -84,8 +84,11 @@
 
 % Todos
 \usepackage{totcount}                 % For total counting of counters
-\usepackage[colorinlistoftodos]{todonotes} % Todonotes package for nice todos
-                                           % (disable by option [disable])
+\def\todoshowing{}
+\ifnum\strcmp{\showtodos}{false}=0
+    \def\todoshowing{disable}
+\fi
+\usepackage[colorinlistoftodos,\todoshowing]{todonotes} % Todonotes package for nice todos
 \newtotcounter{todocounter}           % Creates counter in todo
 \let\oldtodo\todo
 \newcommand*{\newtodo}[2][]{\stepcounter{todocounter}\oldtodo[#1]{\thesection~(\thetodocounter)~#2}}
