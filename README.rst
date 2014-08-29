@@ -26,16 +26,9 @@ Standard (updated) TeX Live package including XeLaTeX and BibTeX.
 
 Fonts
 -----
-The setup uses the following fonts:
-
-* `Computer Modern Unicode <http://www.ctan.org/tex-archive/fonts/cm-unicode>`_
-* `TeX Gyre Adventor <http://www.ctan.org/tex-archive/fonts/tex-gyre>`_
-
-They are contained in TeXLive and MiKTeX installation by default so no extra setup is necessary.
-If you want more unicode support in math mode use the
-`Latin Modern Math <http://www.ctan.org/tex-archive/fonts/lm-math>`_ by uncomment the lines in
-the bottom of ``preamble/fonts.tex``. NB there are `hyperref errors with math symbols using this font in
-headings <http://tex.stackexchange.com/questions/131627>`_.
+The template uses the sans serif font `TeX Gyre Adventor
+<http://www.ctan.org/tex-archive/fonts/tex-gyre>`_, which is contained in TeXLive and MiKTeX installation
+by default so no extra setup is necessary.
 
 Note that `Neo Sans <http://www.monotype.co.uk/neosans/>`_ font (DTU's main font) is the ultimative font
 for headings. A similar font called Neo Sans Intel is also a good alternative which typically contains
