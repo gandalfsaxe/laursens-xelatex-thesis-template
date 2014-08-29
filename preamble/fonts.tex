@@ -4,32 +4,7 @@
 % Install fonts from /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
 \usepackage{fontspec}
 
-%% Serif font
-\setmainfont[
-    Ligatures=TeX,
-    Extension=.otf,
-    UprightFont=*rm,
-    BoldFont=*bx,
-    ItalicFont=*ti,
-    BoldItalicFont=*bi,
-    SlantedFont=*sl,
-    BoldSlantedFont=*bl,
-    %SmallCapsFont=
-]{cmun} % Computer Modern Unicode
-%\setmainfont[Ligatures=TeX]{Latin Modern Roman} % Latin Modern Serif
-\setmonofont[
-    Extension=.otf,
-    UprightFont=*tt,
-    BoldFont=*tb,
-    ItalicFont=*it,
-    BoldItalicFont=*tx,
-    %SlantedFont=,
-    %BoldSlantedFont=,
-    %SmallCapsFont=
-]{cmun} % Computer Modern Unicode
-%\setmonofont{Latin Modern Mono}      % Latin Modern Mono
-
-%% Sans-serif font
+% Sans-serif font
 \setsansfont[
     Ligatures=TeX,
     Extension=.otf,
@@ -46,7 +21,3 @@
 %\setsansfont[Ligatures=TeX]{CMU Sans Serif}    % Computer Modern Unicode font
 %\setsansfont[Ligatures=TeX]{Latin Modern Sans} % Latin Modern Sans serif font
 
-%% Math font
-% Error: http://tex.stackexchange.com/questions/131627
-%\usepackage[math-style=TeX]{unicode-math}
-%\setmathfont{latinmodern-math.otf} % Latin Modern Math
