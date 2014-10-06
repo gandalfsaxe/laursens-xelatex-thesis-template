@@ -22,7 +22,7 @@ All static information such as title, author, degree and so on can be changed in
 Requirements
 ============
 
-Standard (updated) TeX Live package including XeLaTeX and BibTeX.
+Standard (>2014) TeX Live package including XeLaTeX and Biblatex.
 
 Fonts
 -----
@@ -38,10 +38,20 @@ in ``preamble/fonts.tex``.
 Usage
 =====
 
-make
-----
+Manual typesetting
+------------------
 
-There are two ways to use make either by::
+Run the following for manual typesetting the document::
+
+ xelatex Thesis.tex
+ biber Thesis.bcf
+ xelatex Thesis.tex
+ xelatex Thesis.tex
+
+make(file)
+----------
+
+With the templates comes a ``Makefile`` using ``latexmk`` for easy compiling. There are two ways to use make either by::
 
  make
 
@@ -57,13 +67,29 @@ TextMate
 --------
 If using TextMate simply press "⌘R".
 
+Remember to run Biblatex too.
+
 Texmaker
 --------
-In preferences change "Quick Build" option to::
 
-  XeLaTeX + View PDF
+Setup
+,,,,,
 
-Ensure under "Editor" that "Editor Font Encoding" is set to::
+Open Preferences and ensure under "Editor" that "Editor Font Encoding" is set to::
 
-  UTF-8
+ UTF-8
+
+In Preferences under "Quick Build" change it to "User" and the following.
+
+* For Windows users::
+ ???
+* For Mac users::
+ "/usr/texbin/xelatex" -synctex=1 -interaction=nonstopmode %.tex|"/usr/texbin/biber" %.bcf|"/usr/texbin/xelatex" -synctex=1 -interaction=nonstopmode %.tex|"/usr/texbin/xelatex" -synctex=1 -interaction=nonstopmode %.tex|open %.pdf
+
+Typesetting
+,,,,,,,,,,,
+
+Simply press "Quick Build". This will run all necessary commands including setting up your bibliography if there are any changes to it.
+
+If the bibliography is not changed only ``xelatex`` needs to run one single time. You can therefore select XeLaTeX from the run menu instead of the default in Quick build.
 

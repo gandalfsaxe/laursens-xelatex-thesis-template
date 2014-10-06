@@ -68,6 +68,15 @@
 % Language
 \usepackage{polyglossia}    % multilingual typesetting and appropriate hyphenation
 \setdefaultlanguage{english}
+\usepackage{csquotes}       % language sensitive quotation facilities
+
+% Bibliography (references)
+\usepackage[backend=biber,
+            style=alphabetic,
+            %backref=true,
+            abbreviate=false,
+            dateabbrev=false,
+            alldates=long]{biblatex}
 
 % Floating objets, captions and references
 \usepackage[noabbrev,nameinlink,capitalise]{cleveref} % Clever references. Options: "fig. !1!" --> "!Figure 1!"

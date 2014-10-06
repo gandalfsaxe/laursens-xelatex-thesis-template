@@ -10,5 +10,5 @@ auto: Thesis.tex
 
 .PHONY: clean
 clean:
-	rm -f Thesis.pdf *.aux *.bbl *.blg *.log *.out *.tdo *.toc *.xdv *.synctex.gz *.fdb_latexmk *.fls; \
+	rm -f Thesis.pdf *.aux *.bbl *bcf *.blg *.log *.out *.tdo *.toc *.xdv *.synctex.gz *.fdb_latexmk *.fls *.run.xml; \
 	rm -f **/*.aux
