@@ -5,9 +5,9 @@ Laursen's XeLaTeX thesis template
 This is an alternative to the "LUKE'S PHD THESIS TEMPLATE 1.2" used as standard layout for the
 thesis written at DTU Compute.
 
-The template is using the `Memoir class <http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/>`_ 
-which includes a lot of useful and predefined commands. See the "Miscellaneous" chapter of the 
-`Memoir manual <http://tug.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf>`_. 
+The template is using the `Memoir class <http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/>`_
+which includes a lot of useful and predefined commands. See the "Miscellaneous" chapter of the
+`Memoir manual <http://tug.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf>`_.
 Furthermore it uses XeLaTeX for maximum unicode support local fonts.
 
 An updated version of the code can be downloaded from the
@@ -68,6 +68,13 @@ TextMate
 If using TextMate simply press "⌘R".
 
 Remember to run Biblatex too.
+
+TexStudio
+--------
+Open preferences and set
+
+* Under "Editor" set "Editor Font Encoding" to "UFT8"
+* Under "Build" set "Default Compiler" to "XeLaTeX"
 
 Texmaker
 --------
