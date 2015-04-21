@@ -42,7 +42,30 @@
     \setlength{\trimedge}{\stockwidth}
     \addtolength{\trimedge}{-\paperwidth}
     \setlength{\trimedge}{0.5\trimedge}
+    
+    % bigger todos if trim marks
+    \setmarginnotes{10pt}{95pt}{\onelineskip}
+
     \trimLmarks
+    
+    % put jobname in left top trim mark
+    \renewcommand*{\tmarktl}{%
+      \begin{picture}(0,0)
+        \unitlength 1mm
+        \thinlines
+        \put(-2,0){\line(-1,0){18}}
+        \put(0,2){\line(0,1){18}}
+        \put(3,15){\normalfont\ttfamily\fontsize{8bp}{10bp}\selectfont\jobname\ \
+          \today\ \ 
+          \printtime\ \ 
+          Page \thepage}
+      \end{picture}}
+
+    % Remove middle trim marks for cleaner layout
+    \renewcommand*{\tmarktm}{}
+    \renewcommand*{\tmarkml}{}
+    \renewcommand*{\tmarkmr}{}
+    \renewcommand*{\tmarkbm}{}
 \fi
 
 \checkandfixthelayout                 % Check if errors in paper format!
