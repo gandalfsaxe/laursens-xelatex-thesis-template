@@ -102,14 +102,25 @@
             alldates=long]{biblatex}
 
 % Floating objets, captions and references
+\usepackage{flafter}  % floats is positioned after or where it is defined! 
+%\setfloatlocations{figure}{bhtp}   % Set floats for all figures
+%\setfloatlocations{table}{bhtp}    % Set floats for all tables
+%\setFloatBlockFor{section}         % Typeset floats before each section
 \usepackage[noabbrev,nameinlink,capitalise]{cleveref} % Clever references. Options: "fig. !1!" --> "!Figure 1!"
 \hangcaption
 \captionnamefont{\bfseries}
 \subcaptionlabelfont{\bfseries}
 \newsubfloat{figure}
 \newsubfloat{table}
-\letcountercounter{figure}{table}     % Consecutive table and figure numbering
+%\letcountercounter{figure}{table}         % Consecutive table and figure numbering
+%\letcountercounter{lstlisting}{table}     % Consecutive table and listings numbering
 \captiontitlefinal{.}
+% strip things from equation references, making them "(1)" instead of "Equation~1"
+% from http://tex.stackexchange.com/questions/122174/how-to-strip-eq-from-cleveref
+\crefformat{equation}{(#2#1#3)}
+\crefrangeformat{equation}{(#3#1#4) to~(#5#2#6)}
+\crefmultiformat{equation}{(#2#1#3)}%
+{ and~(#2#1#3)}{, (#2#1#3)}{ and~(#2#1#3)}
 
 % Table of contents (TOC)
 \setcounter{tocdepth}{1}              % Depth of table of content
