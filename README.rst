@@ -70,7 +70,7 @@ If using TextMate simply press "⌘R".
 Remember to run Biblatex too.
 
 TexStudio
---------
+---------
 Open preferences and set
 
 * Under "Editor" set "Editor Font Encoding" to "UFT8"
@@ -88,9 +88,12 @@ Open Preferences and ensure under "Editor" that "Editor Font Encoding" is set to
 
 In Preferences under "Quick Build" change it to "User" and the following.
 
-* For Windows users::
- ???
-* For Mac users::
+For Windows users::
+
+ "xelatex -synctex=1 -interaction=nonstopmode %.tex|biber %.bcf|xelatex -synctex=1 -interaction=nonstopmode %.tex|xelatex -synctex=1 -interaction=nonstopmode %.tex"
+
+For Mac users::
+
  "/usr/texbin/xelatex" -synctex=1 -interaction=nonstopmode %.tex|"/usr/texbin/biber" %.bcf|"/usr/texbin/xelatex" -synctex=1 -interaction=nonstopmode %.tex|"/usr/texbin/xelatex" -synctex=1 -interaction=nonstopmode %.tex|open %.pdf
 
 Typesetting
