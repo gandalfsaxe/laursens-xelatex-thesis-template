@@ -4,7 +4,7 @@
 \newcommand{\papersizeswitch}[3]{\ifnum\strcmp{\papersize}{#1}=0#2\else#3\fi}
 \papersizeswitch{b5paper}{\def\classfontsize{10pt}}{\def\classfontsize{12pt}}
 
-\documentclass[\classfontsize,\papersize,twoside,showtrims]{memoir}
+\documentclass[\classfontsize,\papersize,twoside,showtrims,extrafontsizes]{memoir}
 \RequireXeTeX
 
 \showtrimsoff
@@ -131,9 +131,9 @@
 
     \setlength\beforechapskip{0mm}
 
-    \renewcommand*{\chapnamefont}{\format\LARGE}
-    \renewcommand*{\chapnumfont}{\format\fontsize{40}{40}\selectfont}
-    \renewcommand*{\chaptitlefont}{\format\fontsize{32}{32}\selectfont}
+    \renewcommand*{\chapnamefont}{\format\HUGE}
+    \renewcommand*{\chapnumfont}{\format\fontsize{54}{54}\selectfont}
+    \renewcommand*{\chaptitlefont}{\format\fontsize{42}{42}\selectfont}
 
     \renewcommand*{\printchaptername}{\chapnamefont\MakeUppercase{\@chapapp}}
     \patchcommand{\printchaptername}{\begingroup\color{dtugray}}{\endgroup}
@@ -148,7 +148,6 @@
 
     \renewcommand*{\printchaptertitle}[1]{\raggedleft \chaptitlefont ##1}
     \renewcommand*{\afterchaptertitle}{\vskip0.5\onelineskip \hrule \vskip1.3\onelineskip}
-
 }
 \makeatother
 \chapterstyle{mychapterstyle}
@@ -178,6 +177,14 @@
 
 \makeevenfoot{plain}{}{}{}            % No page number on plain even pages (chapter begin)
 \makeoddfoot{plain}{}{}{}             % No page number on plain odd pages (chapter begin)
+
+% \*section, \*paragraph font styles
+\setsecheadstyle              {\huge\sffamily\raggedright}
+\setsubsecheadstyle           {\LARGE\sffamily\raggedright}
+\setsubsubsecheadstyle        {\Large\sffamily\raggedright}
+%\setparaheadstyle             {\normalsize\sffamily\itseries\raggedright}
+%\setsubparaheadstyle          {\normalsize\sffamily\raggedright}
+
 
 % Hypersetup
 \hypersetup{
