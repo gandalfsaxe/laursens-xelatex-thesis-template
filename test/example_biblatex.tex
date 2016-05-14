@@ -1,0 +1,25 @@
+\input{example_preamble}
+
+\prebiblatexhacks
+\usepackage[backend=biber,
+            style=alphabetic,
+            backref=true,
+            abbreviate=false,
+            dateabbrev=false,
+            alldates=long]{biblatex}
+\postbiblatexhacks
+
+\addbibresource{bib.bib}
+
+
+\begin{document}
+
+\input{example_content}
+
+
+
+\backmatter
+\printbibliography[title={Bibliography}]
+
+\end{document}
+
