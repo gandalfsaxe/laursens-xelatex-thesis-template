@@ -1,0 +1,81 @@
+\documentclass[a4paper,twoside,watermark,extrafontsizes,confidential]{laursenthesis}
+
+% Document info
+% =============
+
+\title      {Laursen's template}
+\author     {John Doe}
+\subject    {Master thesis}
+\pdfkeywords{Laursen, template, LaTeX, XeLaTex, pdfLaTeX, LuaLatex, biblatex, bibtex}
+\email      {sABCDEF@student.dtu.dk}
+\city       {Kongens Lyngby}
+\address    {%
+  \textbf{Technical University of Denmark}\\
+  \textbf{Department of Applied Mathematics and Computer Science}\\
+  \\
+  \textbf{DTU Compute}\\
+  Richard Petersens Plads\\
+  Building 324\\
+  2800 Kgs.\ Lyngby\\
+  DENMARK\\
+  \\
+  Tel.\ +45 4525 3031\\
+  compute@compute.dtu.dk\\
+  www.compute.dtu.dk%
+}
+\type       {%
+  Master of Science in Engineering\\
+  Computer Science and Engineering%
+}
+
+\logo       {DTU-logo-CMYK}
+\deplogo    {DTU-Compute-A-UK}
+\watermark  {DTU-frise-SH-15}
+
+% All above have a getter \theX, e.g. \theauthor prints the author
+
+
+\begin{document}
+
+
+\prefrontmatter
+\maketitle
+\makecolophon
+
+
+\frontmatter
+\chapter{Summary}
+Foo Bar \cite{adams1980hitchhiker}.
+\chapter{Preface}
+Foo Bar.
+\section{Acknowledgements}
+Baz.
+\clearforchapter
+\tableofcontents
+\mylistoftodos
+
+
+\mainmatter
+\chapter{Introduction}
+Here is the introduction \cref{myNiceFigure}.\todo{Write the rest}
+
+\begin{figure}
+  \missingfigure{Add this figure}
+  \caption{Nice figure}\label{myNiceFigure}
+\end{figure}
+
+\chapter{Conclusion}
+
+
+\appendix
+\chapter{AnAppendix}
+More reference to \cite{rfc2549}.
+
+
+\backmatter
+\bibliographystyle{alpha}
+\bibliography{../test/bib.bib}
+
+
+\end{document}
+

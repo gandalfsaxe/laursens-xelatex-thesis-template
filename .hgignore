@@ -1,4 +1,20 @@
 syntax: glob
 
 **.DS_Store
+
+examples/*.aux
+examples/*.bbl
+examples/*.bcf
+examples/*.blg
+examples/*.fdb_latexmk
+examples/*.fls
+examples/*.log
+examples/*.out
+examples/*.pdf
+examples/*.run.xml
+examples/*.synctex.gz
+examples/*.tdo
+examples/*.toc
+examples/*.xdv
+
 test/test_*

@@ -1,0 +1,156 @@
+\documentclass[dtucompute,twoside,10pt,extrafontsizes]{laursenthesis}
+
+% Document info
+% =============
+
+\title      {Laursen's template}
+\author     {John Doe}
+\subject    {Master thesis}
+\pdfkeywords{Laursen, template, LaTeX, XeLaTex, pdfLaTeX, LuaLatex, biblatex, bibtex}
+\email      {sABCDEF@student.dtu.dk}
+\city       {Kongens Lyngby}
+\address    {%
+  \textbf{Technical University of Denmark}\\
+  \textbf{Department of Applied Mathematics and Computer Science}\\
+  \\
+  \textbf{DTU Compute}\\
+  Richard Petersens Plads\\
+  Building 324\\
+  2800 Kgs.\ Lyngby\\
+  DENMARK\\
+  \\
+  Tel.\ +45 4525 3031\\
+  compute@compute.dtu.dk\\
+  www.compute.dtu.dk%
+}
+\type       {%
+  Master of Science in Engineering\\
+  Computer Science and Engineering%
+}
+
+\logo       {DTU-logo-CMYK}
+\deplogo    {DTU-Compute-A-UK}
+\watermark  {DTU-frise-SH-15}
+
+% All above have a getter \theX, e.g. \theauthor prints the author
+
+
+% Custom commands
+% ===============
+
+% Set
+% ---
+% Nice sets i.e. $\Set{x^2 \given x \in \mathcal{Z}}$
+% just to make sure it this
+\providecommand\given{}
+% can be useful to refer to this outside \Set
+\newcommand\SetSymbol[1][]{\nonscript\:#1\vert\nonscript\:\allowbreak}
+\DeclarePairedDelimiterX\Set[1]{\{}{\}}{%
+  \renewcommand\given{\SetSymbol[\delimsize]}
+  #1
+}
+
+
+% Theorem styles
+% --------------
+% \bf{Theorem 1}. \emph{text}
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{fact}{Fact}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+% \newtheorem{theorem}[lemma]{Theorem}[chapter] % to make consecutive
+
+% \bf{Definition 1}. text
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+
+% Remark 1. text
+%\theoremstyle{remark}
+
+% Correct cref for facts
+\crefformat{fact}{#2Fact~#1#3}
+\crefrangeformat{fact}{#3Fact~#1#4 to~#5Fact~#2#6}
+\crefmultiformat{fact}{#2Fact~#1#3}%
+{ and #2Fact~#1#3}{, #2Fact~#1#3}{ and #2Fact~#1#3}
+
+
+% Extended todo commands
+% ----------------------
+\newcommand{\less}[2][]{\todo[color=white,#1]{#2}}
+\newcommand{\more}[2][]{\todo[color=red!50,#1]{#2}}
+\newcommand{\ask}[2][]{\todo[color=blue!40,#1]{#2}}
+\newcommand{\code}[2][]{\todo[inline,color=gray!40,#1]{#2}}
+
+
+% Packages
+% --------
+
+\usepackage{adjustbox}% http://ctan.org/pkg/adjustbox
+\usepackage{listings}                 % Source code printer for LaTeX
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+
+% Biblatex
+% ========
+
+\prebiblatexhacks
+\usepackage[backend=biber,
+            style=alphabetic,
+            backref=true,
+            abbreviate=false,
+            dateabbrev=false,
+            alldates=long]{biblatex}
+\postbiblatexhacks
+
+\addbibresource{../test/bib.bib}
+
+
+% Document
+% ========
+
+\begin{document}
+
+
+\prefrontmatter
+\maketitle
+\makecolophon
+
+
+\frontmatter
+\chapter{Summary}
+\lipsum[1]
+\cite{adams1980hitchhiker}
+\chapter{Preface}
+\chapter{Acknowledgements}
+\clearforchapter
+\tableofcontents
+\mylistoftodos
+
+
+\mainmatter
+\chapter{Introduction}
+Here is the introduction \cref{myNiceFigure}.\todo{Write the rest}
+
+\begin{figure}
+  \missingfigure{Add this figure}
+  \caption{Nice figure}\label{myNiceFigure}
+\end{figure}
+\lipsum[2]
+
+\chapter{Conclusion}
+\lipsum[3]
+\blinddocument 
+
+
+\appendix
+\chapter{AnAppendix}
+More reference to \cite{rfc2549}. \lipsum[4]
+
+
+\backmatter
+\printbibliography[title={Bibliography}]
+
+\end{document}
+
