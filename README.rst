@@ -17,17 +17,20 @@ Development
 ===========
 
 Make latex folders::
+
  (mac) mkdir -p ~/Library/texmf/tex/latex/
  (linux) mkdir -p ~/texmf/tex/latex/
 
 Go to folder::
+
  (mac) cd ~/Library/texmf/tex/latex/
  (linux) cd ~/texmf/tex/latex/
 
 Clone and change branch::
- hg clone https://bitbucket.org/_laursen/laursens-...   ./laursenthesis
+
+ hg clone hg clone https://_laursen@bitbucket.org/_laursen/laursens-xelatex-thesis-template ./laursenthesis
  cd laursenthesis
- hg branch class
+ hg update class
 
 Begin develop.
 
