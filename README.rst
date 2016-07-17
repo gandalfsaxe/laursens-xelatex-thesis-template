@@ -34,3 +34,11 @@ Clone and change branch::
 
 Begin develop.
 
+
+Testing
+=======
+
+Run all current test using (spawns multiple processes)::
+
+ python test.py
+
