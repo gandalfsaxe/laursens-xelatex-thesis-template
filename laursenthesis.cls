@@ -506,11 +506,12 @@
   \part{Fonts}
 \end{comment}
 
+% Text fonts (http://www.macfreek.nl/memory/Fonts_in_LaTeX)
 \ifxetexorluatex
     \usepackage{fontspec}
-    \setsansfont[
+    \setsansfont{texgyreadventor}[
         Ligatures=TeX,
-        Extension=.otf,
+        Path,
         UprightFont=*-regular,
         BoldFont=*-bold,
         ItalicFont=*-italic,
@@ -518,28 +519,13 @@
         %SlantedFont=,
         %BoldSlantedFont=,
         %SmallCapsFont=
-        Scale=0.8      % Adjustmens when using math in headings
-    ]{texgyreadventor}
-    \setmathsf{Latin Modern Sans}
+        Scale=0.8      % Adjustmens when using sf in text
+    ]
+    %\setmathsf{lmsans10-regular}[Path] % Probably nNot needed any more, sf in math is latin modern.
 \else
     \usepackage{lmodern}
     \usepackage{tgadventor}
 \fi
-
-
-% Text fonts (http://www.macfreek.nl/memory/Fonts_in_LaTeX)
-% Install fonts from /usr/local/texlive/<version>/texmf-dist/fonts/opentype/public
-
-%
-% Sans-serif font
-
-%\setsansfont[Ligatures=TeX]{Neo Sans Intel}    % Neo Sans Intel – Like DTU font but more symbols
-%\setsansfont[Ligatures=TeX,Scale=0.95]{NeoSans}           % NeoSans – DTU font (missing `+' symbols and other)
-%\setsansfont[Ligatures=TeX]{NeoTech}           %
-%\setsansfont[Ligatures=TeX]{CMU Sans Serif}    % Computer Modern Unicode font
-%\setsansfont[Ligatures=TeX]{Latin Modern Sans} % Latin Modern Sans serif font
-
-%Scale=0.95
 
 
 
