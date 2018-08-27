@@ -13,13 +13,13 @@ All static information such as title, author, degree and so on can be changed in
 
 ## Requirements
 
-Standard (>2014) TeX Live package including XeLaTeX and Biblatex.
+Standard (>2014) TeX Live package including XeLaTeX and BibLaTeX.
 
 ### Fonts
 
 The template uses the sans serif font [TeX Gyre Adventor](http://www.ctan.org/tex-archive/fonts/tex-gyre/), which is contained in TeXLive and MiKTeX installation by default so no extra setup is necessary.
 
-Note that [Neo Sans](http://www.monotype.co.uk/neosans/) font (DTU's main font) is the ultimative font for headings.
+Note that [Neo Sans](http://www.monotype.co.uk/neosans/) font (DTU's main font) is the ultimate font for headings.
 A similar font called Neo Sans Intel is also a good alternative which typically contains more symbols. If the Neo Sans (Intel) font are installed on your system (un)comment the respective lines in `preamble/fonts.tex`.
 
 ## Usage
@@ -53,14 +53,14 @@ To clean up project run:
 
 If using TextMate simply press "⌘R".
 
-Remember to run Biblatex too.
+Remember to run BibLaTeX too.
 
 ### TexStudio
 
 Open preferences and set
 
--   Under "Editor" set "Editor Font Encoding" to "UFT8"
--   Under "Build" set "Default Compiler" to "XeLaTeX"
+- Under "Editor" set "Editor Font Encoding" to "UFT8"
+- Under "Build" set "Default Compiler" to "XeLaTeX"
 
 ### Texmaker
 
