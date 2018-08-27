@@ -33,7 +33,7 @@
     }
 }
 \ifnum\strcmp{\showtrims}{true}=0
-    % For printing B5 on A4 with trimmarks
+    % For printing B5 on A4 with trim marks
     \showtrimson
     \papersizeswitch{b5paper}{\stockaiv}{\stockaiii}
     \setlength{\trimtop}{\stockheight}
@@ -69,7 +69,7 @@
 \fi
 
 \checkandfixthelayout                 % Check if errors in paper format!
-\sideparmargin{outer}                 % Put sidemargins in outer position (why the fuck is this option not default by the class?)
+\sideparmargin{outer}                 % Put side margins in outer position (why the fuck is this option not default by the class?)
 
 % Large environments
 \usepackage{microtype}
@@ -78,11 +78,11 @@
 \usepackage{tikz}
 
 % Links
-\usepackage[hyphens]{url}             % Allow hyphens in URL's
+\usepackage[hyphens]{url}             % Allow hyphens in URLs
 \usepackage[unicode=false,psdextra]{hyperref}                 % References package
 
 % Graphics and colors
-\usepackage{graphicx}                 % Including graphics and using colours
+\usepackage{graphicx}                 % Including graphics and using colors
 \usepackage{xcolor}                   % Defined more color names
 \usepackage{eso-pic}                  % Watermark and other bag
 \usepackage{preamble/dtucolors}
@@ -101,7 +101,7 @@
             dateabbrev=false,
             alldates=long]{biblatex}
 
-% Floating objets, captions and references
+% Floating objects, captions and references
 \usepackage{flafter}  % floats is positioned after or where it is defined! 
 %\setfloatlocations{figure}{bhtp}   % Set floats for all figures
 %\setfloatlocations{table}{bhtp}    % Set floats for all tables
@@ -207,7 +207,7 @@
 }
 \pagestyle{myruled}
 \copypagestyle{cleared}{myruled}      % When \cleardoublepage, use myruled instead of empty
-\makeevenhead{cleared}{\hffont\thepage}{}{} % Remove leftmark on cleared pages
+\makeevenhead{cleared}{\hffont\thepage}{}{} % Remove left mark on cleared pages
 
 \makeevenfoot{plain}{}{}{}            % No page number on plain even pages (chapter begin)
 \makeoddfoot{plain}{}{}{}             % No page number on plain odd pages (chapter begin)
@@ -296,9 +296,9 @@
 }
 
 % This is a double sided book. If there is a last empty page lets use it for some fun e.g. the frieze.
-% NB: For a fully functional hack the \clearpage used in \include does some odd thinks with the sequence numbering. Thefore use \input instead of \include at the end of the book. If bibliography is used at last everything should be ok.
+% NB: For a fully functional hack the \clearpage used in \include does some odd thinks with the sequence numbering. Therefore use \input instead of \include at the end of the book. If bibliography is used at last everything should be ok.
 \makeatletter
-% Adjust so gatherings is allowd for single sheets too! (hacking functions in memoir.dtx)
+% Adjust so gatherings is allowed for single sheets too! (hacking functions in memoir.dtx)
 \patchcmd{\leavespergathering}{\ifnum\@memcnta<\tw@}{\ifnum\@memcnta<\@ne}{
     \leavespergathering{1}
     % Insert the frieze
