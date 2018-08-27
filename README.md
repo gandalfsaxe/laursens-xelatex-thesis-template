@@ -1,5 +1,20 @@
 # Laursen's XeLaTeX thesis template
 
+## Why this repository?
+
+The [original repository](https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/) is at Bitbucket. I noticed a few things (spelling mistakes etc.) that I wanted to correct, but:
+
+1. The author doesn't seem interested in pull requests; [this PR](https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/pull-requests/) from September 2014 has not been accepted, rejected or discussed.
+2. I'm more familiar with {Git, GitHub, Markdown}, than {Mercurial, Bitbucket, reStructuredText}.
+
+Another fork of the template focused on using LuaTeX instead of XeLaTeX can be found here https://github.com/martinjlowm/dtu-latex-thesis-template.
+
+## Is this an official DTU template?
+
+It's not an official template, but is based on official DTU graphics and is recommended on both [latex.dtu.dk](http://latex.dtu.dk/?page_id=61) and one of the recommended templates on the internal article [Report writing and submission, DTU Compute](https://www.inside.dtu.dk/en/medarbejder/institutter/dtu-compute/uddannelse/afgangsspecialer?fs=1) on DTU Inside.
+
+## Introduction
+
 This is an alternative to the "LUKE'S PHD THESIS TEMPLATE 1.2" used as standard layout for the thesis written at DTU Compute.
 
 The template is using the [Memoir class](http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/) which includes a lot of useful and predefined commands.
