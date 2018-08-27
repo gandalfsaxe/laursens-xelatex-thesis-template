@@ -7,7 +7,7 @@ The [original repository](https://bitbucket.org/_laursen/laursens-xelatex-thesis
 1. The author doesn't seem interested in pull requests; [this PR](https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/pull-requests/) from September 2014 has not been accepted, rejected or discussed.
 2. I'm more familiar with {Git, GitHub, Markdown}, than {Mercurial, Bitbucket, reStructuredText}.
 
-Another fork of the template focused on using LuaTeX instead of XeLaTeX can be found here https://github.com/martinjlowm/dtu-latex-thesis-template.
+Another fork of the template focused on using LuaTeX instead of XeLaTeX can be found here <https://github.com/martinjlowm/dtu-latex-thesis-template>.
 
 ## Is this an official DTU template?
 
@@ -101,3 +101,27 @@ For Mac users:
 Simply press "Quick Build". This will run all necessary commands including setting up your bibliography if there are any changes to it.
 
 If the bibliography is not changed only `xelatex` needs to run one single time. You can therefore select XeLaTeX from the run menu instead of the default in Quick build.
+
+### Visual Studio Code
+
+Install the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension. It pretty much just works out of the box, and documentation is good.
+
+#### Spell checking
+
+For spell checking, I would recommend trying [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) or [Spell Right](https://marketplace.visualstudio.com/items?itemName=ban.spellright). Included in this repository is a `.vscode/` directory that contains dictionaries for both these extensions such that they should not give any spelling errors on any template content out-of-the-box. They can safely be deleted if one does not use these extensions or VSCode.
+
+Both extensions do more or less the same thing, but have some differences:
+
+##### Code Spell Checker
+
+- Is Based on the open [Hunspell](http://hunspell.github.io) dictionary.
+- Tries reduce the number of false positives, but may catch less errors.
+- By default saves custom dictionary words in User or Workspace (`.vscode/`) `settings.json` along with the other settings (but can also be set up to point dictionary files)
+
+##### Spell Right
+
+- Taps into your OS system dictionary.
+- Will typically give more spelling errors, but may catch slightly more errors.
+- Save dictionary of words in `spellright.dict` plaintext file that is found in User or Workspace (`.vscode/`) folder.
+
+I usually keep "Code Spell Checker" on all the time, and activate "Spell Right" periodically when I'm in mood for low-energy work and some extra spell checking. But one could also do just fine with just one of them.
