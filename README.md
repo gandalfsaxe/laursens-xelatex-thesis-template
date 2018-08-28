@@ -2,7 +2,7 @@
 
 ## Why this repository?
 
-The [original repository](https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/) is at Bitbucket. I noticed a few things (spelling mistakes etc.) that I wanted to correct, but:
+The [original repository](https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/) is at Bitbucket. I noticed a few things I wanted to correct (spelling mistakes, a `\\` that caused underfull hbox warnings etc.), and also make it more friendly to VSCode spell checking extension (see bottom of README). The reasons I didn't simply push it to the original repository:
 
 1. The author doesn't seem interested in pull requests; [this PR](https://bitbucket.org/_laursen/laursens-xelatex-thesis-template/pull-requests/) from September 2014 has not been accepted, rejected or discussed.
 2. I'm more familiar with {Git, GitHub, Markdown}, than {Mercurial, Bitbucket, reStructuredText}.

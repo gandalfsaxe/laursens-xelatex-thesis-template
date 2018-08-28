@@ -14,6 +14,7 @@ dtugray
 dtured
 escapeinside
 filebordercolor
+hbox
 hidelinks
 jobname
 keywordstyle
@@ -48,6 +49,7 @@ texlive
 texmf
 todonotes
 todos
+underfull
 urlbordercolor
 xelate
 xelatex
