@@ -108,20 +108,36 @@ Install the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName
 
 #### Spell checking
 
-For spell checking, I would recommend trying [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) or [Spell Right](https://marketplace.visualstudio.com/items?itemName=ban.spellright). Included in this repository is a `.vscode/` directory that contains dictionaries for both these extensions such that they should not give any spelling errors on any template content out-of-the-box. They can safely be deleted if one does not use these extensions or VSCode.
+For spell checking, I would recommend trying [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) or [Spell Right](https://marketplace.visualstudio.com/items?itemName=ban.spellright).
 
-Both extensions do more or less the same thing, but have some differences:
+Both extensions do more or less the same thing, but have some differences.
 
-##### Code Spell Checker
+##### Code Spell Checker (cSpell)
 
 - Is Based on the open [Hunspell](http://hunspell.github.io) dictionary.
 - Tries reduce the number of false positives, but may catch less errors.
 - By default saves custom dictionary words in User or Workspace (`.vscode/`) `settings.json` along with the other settings (but can also be set up to point dictionary files)
 
-##### Spell Right
+##### Spell Right (spelling)
 
 - Taps into your OS system dictionary.
 - Will typically give more spelling errors, but may catch slightly more errors.
 - Save dictionary of words in `spellright.dict` plaintext file that is found in User or Workspace (`.vscode/`) folder.
+
+##### Included spelling dictionaries for template
+
+The template includes quite a few words that will trigger both `cSpell` and `spelling`:
+
+- `.vscode/lauersens-cspell.txt` is a dictionary for the `cSpell` extension.
+- `.vscode/lauersens-spelling.dict` a dictionary for the `spelling` extension.
+
+They are both enabled with the settings in `.vscode/settings.json`.
+
+When adding new words via the Quick Fix (⌘+. or Ctrl+.) menu, adding word to workspace dictionary:
+
+- for `cSpell` they will go into a new list in `.vscode/settings.json`.
+- for `spelling` they will go into `.vscode/spellright.dict` that will be created on first use.
+
+In some sense it would be nice just to have one dictionary for both extensions, but it doesn't seem feasible until [this issue](https://github.com/Jason-Rev/vscode-spell-checker/issues/264) is fixed.
 
 I usually keep "Code Spell Checker" on all the time, and activate "Spell Right" periodically when I'm in mood for low-energy work and some extra spell checking. But one could also do just fine with just one of them.
