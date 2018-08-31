@@ -64,7 +64,7 @@ To clean up project run:
 
     make clean
 
-### If using todonotes, use `` for wider margins
+### If using todonotes, use `showtrims` for wider margins
 
 If you plan on using the todonotes system, I highly recommend you set `\def\showtrims` to true in `static.tex`. This will increase the paper size and give extra margin space for the todonotes, which makes them more readable, looks better and avoids loads of `Overfull \hbox` warnings in the LaTeX output. The content itself will still fit into the same size as the set paper size, so the extra margin space is just for comments. Remember to put back to `false` before final hand-in. All pages will be marked with the filename, date, page number and visual indicators in the corners of the extra margin space, so fortunately it's not easy to forget.
 
