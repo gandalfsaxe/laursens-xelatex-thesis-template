@@ -23,5 +23,8 @@
   // Activate dictionary for latex template, for latex and markdown
   "cSpell.languageSettings": [
     { "languageId": "latex, markdown", "dictionaries": ["lauersens-cspell"] }
+  ],
+  "cSpell.words": [
+    "showtrims"
   ]
 }
