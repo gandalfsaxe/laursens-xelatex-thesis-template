@@ -9,6 +9,8 @@ The [original repository](https://bitbucket.org/_laursen/laursens-xelatex-thesis
 
 Another fork of the template focused on using LuaTeX instead of XeLaTeX can be found here <https://github.com/martinjlowm/dtu-latex-thesis-template>.
 
+Note that I haven't touched the "class" branch, so no corrections or additions are present in the document class version of this template. I might do it if I use it at some point myself. PRs are welcome.
+
 ## Is this an official DTU template?
 
 It's not an official template, but is based on official DTU graphics and is recommended on both [latex.dtu.dk](http://latex.dtu.dk/?page_id=61) and one of the recommended templates on the internal article [Report writing and submission, DTU Compute](https://www.inside.dtu.dk/en/medarbejder/institutter/dtu-compute/uddannelse/afgangsspecialer?fs=1) on DTU Inside.
