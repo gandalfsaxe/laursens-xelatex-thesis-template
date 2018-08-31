@@ -10,13 +10,13 @@
 
 \begin{document}
 
-\prefrontmatter
+\prefrontmatter  % Custom command: page numbers are lowercase letters (front page is page a), confidential watermarks if enabled
 \include{prefrontmatter/titlepage}
 \cleartoevenpage
 \include{prefrontmatter/colophon}
 \clearforchapter
 
-\frontmatter
+\frontmatter  % Turn off chapter numbering, page numbers are roman numerals
 \include{frontmatter/Abstract}
 \include{frontmatter/Preface}
 \include{frontmatter/Acknowledgements}
@@ -25,16 +25,16 @@
 \clearforchapter
 \mylistoftodos
 
-\mainmatter
+\mainmatter  % Turn on chapter numbering, reset page numbering and page numbers are Arabic numerals
 \include{chapters/Introduction}
 \include{chapters/LongTitle}
 \blinddocument
 \include{chapters/Conclusion}
 
-\appendix
+\appendix  % Reset chapter numbering, chapter numbers are letters and does nothing to page numbering
 \include{appendices/AnAppendix}
 
-\backmatter
+\backmatter  % Turn off chapter numbering and does nothing to page numbering
 \printbibliography
 
 \end{document}
