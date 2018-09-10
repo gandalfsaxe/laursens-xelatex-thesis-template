@@ -120,13 +120,13 @@ Both extensions do more or less the same thing, but have some differences.
 
 ##### Code Spell Checker (cSpell)
 
-- Is Based on the open [Hunspell](http://hunspell.github.io) dictionary.
+- Is Based on the open [Hunspell](http://hunspell.github.io) dictionary, so is OS-independent.
 - Tries reduce the number of false positives, but may catch less errors.
 - By default saves custom dictionary words in User or Workspace (`.vscode/`) `settings.json` along with the other settings (but can also be set up to point dictionary files)
 
 ##### Spell Right (spelling)
 
-- Taps into your OS system dictionary.
+- Taps into your OS system dictionary, so is OS-dependent.
 - Will typically give more spelling errors, but may catch slightly more errors.
 - Save dictionary of words in `spellright.dict` plaintext file that is found in User or Workspace (`.vscode/`) folder.
 
