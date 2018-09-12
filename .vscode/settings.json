@@ -25,6 +25,7 @@
     { "languageId": "latex, markdown", "dictionaries": ["lauersens-cspell"] }
   ],
   "cSpell.words": [
+    "Mendeley",
     "allowlitunits",
     "showtrims"
   ]
